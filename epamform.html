@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EPAM FORM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .text-middle-line {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .text-middle-line:before,
+        .text-middle-line:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid lightgray;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 rounded-lg border p-0 mt-3">
+            <div class="bg-primary d-flex text-white p-2 justify-content-between">
+                <div class="pl-2"><h3 class="rounded-circle border"><span class="material-icons">android</span></h3></div>
+                <h3>Sign in</h3>
+                <div class="pr-2"><h3>&times;</h3></div>
+            </div>
+            <div class="p-3">
+                <form>
+                    <div class="input-group mb-3 mt-2">
+                        <input type="email" class="form-control" placeholder="mail@example.com" id="mail">
+                        <div class="input-group-append">
+                            <button type="button" class="btn border" disabled><span class="material-icons" style="font-size:15px;">mail_outline</span></button>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="password" id="password">
+                        <div class="input-group-append">
+                            <button type="button" class="btn border" disabled><span class="material-icons" style="font-size:15px;">lock</span></button>
+                        </div>
+                    </div>
+                    <div class="pt-3"><button type="submit" class="btn btn-primary btn-block" onclick="signIn()">SIGN IN</button></div>
+                    <div class="pt-2 pb-3">
+                    <div class="d-flex justify-content-between">
+                        <p class="text-secondary">Forgot your password?</p>
+                        <p class="text-secondary">Register!</p>
+                    </div>
+                    </div>
+                    <p class="text-middle-line text-muted">&nbsp;&nbsp;OR&nbsp;&nbsp;</p>
+                    <div class="pt-3"><button type="submit" class="btn btn-primary btn-block"><span class="material-icons" style="font-size:15px;">forum</span></button></div>
+                    <div class="pt-2"><button type="submit" class="btn btn-danger btn-block"><span class="material-icons" style="font-size:15px;">drafts</span></button></div>
+                    <div class="pt-5 pb-5"><button type="submit" class="btn btn-warning btn-block text-white">EPAM LOGIN</button></div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+<script>
+
+     function signIn(){
+         var mail=document.getElementById("mail").value;
+         var password=document.getElementById("password").value;
+         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+         (mail==""||password=="")?alert('Please Enter Email or Password'):(mail.match(mailformat))?alert('Login Successful!'):alert('Invalid Email Id! Enter a valid email like "mysite@ourearth.com"');
+     }
+</script>
+</body>
+</html>
